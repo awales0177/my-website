@@ -1,6 +1,6 @@
 # My Website
 
-A modern documentation website built with Docusaurus.
+This is my personal website built with Docusaurus.
 
 ## Features
 
@@ -9,6 +9,55 @@ A modern documentation website built with Docusaurus.
 - 🌙 Dark mode support
 - 📱 Mobile responsive
 - 🎨 Customizable theme
+
+## DocDataFrame Component
+
+The DocDataFrame component is a powerful and interactive table component for displaying data in your documentation. It supports sorting, pagination, and responsive design.
+
+### Installation
+
+The component is already included in the project. You can import it in any MDX file:
+
+```jsx
+import DocDataFrame from '@site/src/components/DocDataFrame';
+```
+
+### Usage
+
+Basic usage with required props:
+
+```jsx
+<DocDataFrame
+  data={[
+    { id: 1, name: 'John', age: 30 },
+    { id: 2, name: 'Jane', age: 25 }
+  ]}
+  columns={['id', 'name', 'age']}
+  rowsPerPage={5}
+/>
+```
+
+### Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `data` | Array | Yes | Array of objects containing the data to display |
+| `columns` | Array | Yes | Array of strings specifying which columns to display |
+| `rowsPerPage` | Number | No | Number of rows to display per page (default: 10) |
+
+### Features
+
+- **Sortable Columns**: Click on column headers to sort the data
+- **Pagination**: Navigate through pages of data
+- **Responsive Design**: Tables adapt to different screen sizes
+- **Dark Mode Support**: Automatically matches your documentation theme
+- **Column Resizing**: Drag column edges to adjust widths
+- **Tooltips**: Hover over cells to see full content
+- **Even/Odd Row Styling**: Alternating row colors for better readability
+
+### Examples
+
+See the [DataFrame Examples](/docs/dataframe-example) page for detailed examples of different use cases.
 
 ## Setup
 

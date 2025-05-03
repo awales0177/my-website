@@ -17,6 +17,11 @@
 module.exports = {
   tutorialSidebar: [
     {
+      type: 'doc',
+      id: 'intro',
+      label: 'Introduction'
+    },
+    {
       type: 'category',
       label: 'Database Schemas',
       items: [
@@ -31,11 +36,6 @@ module.exports = {
       type: 'doc',
       id: 'dataframe-example',
       label: 'DataFrame Example'
-    },
-    {
-      type: 'doc',
-      id: 'intro',
-      label: 'Introduction'
     }
   ]
 };
