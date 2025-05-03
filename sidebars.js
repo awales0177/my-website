@@ -14,33 +14,28 @@
 
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
-const sidebars = {
+module.exports = {
   tutorialSidebar: [
+    {
+      type: 'category',
+      label: 'Database Schemas',
+      items: [
+        {
+          type: 'doc',
+          id: 'database-schemas/car-schema',
+          label: 'Car Database Schema'
+        }
+      ]
+    },
+    {
+      type: 'doc',
+      id: 'dataframe-example',
+      label: 'DataFrame Example'
+    },
     {
       type: 'doc',
       id: 'intro',
-    },
-    {
-      type: 'category',
-      label: 'Tutorial Basics',
-      items: [
-        'tutorial-basics/create-a-document',
-        'tutorial-basics/create-a-page',
-        'tutorial-basics/create-a-blog-post',
-        'tutorial-basics/markdown-features',
-        'tutorial-basics/deploy-your-site',
-        'tutorial-basics/congratulations',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Tutorial Extras',
-      items: [
-        'tutorial-extras/manage-docs-versions',
-        'tutorial-extras/translate-your-site',
-      ],
-    },
-  ],
+      label: 'Introduction'
+    }
+  ]
 };
-
-module.exports = sidebars;

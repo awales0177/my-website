@@ -1,21 +1,30 @@
 ---
-sidebar_position: 1
+slug: /
 ---
 
-# Introduction
+# Welcome to My Website
 
-Welcome to the documentation! This is version 1.0.0 of our documentation.
-
-## Getting Started
-
-This is where you can write your documentation content. You can use Markdown to format your text.
+This is my personal website built with Docusaurus. Here you'll find information about me, my projects, and more.
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- 📚 Documentation
+- 🔍 Built-in search functionality
+- 🌙 Dark mode support
+- 📱 Mobile responsive
+- 🎨 Customizable theme
 
-## Next Steps
+## Get Started
 
-Continue reading to learn more about our product.
+To get started with this website, you can:
+
+1. Browse through the documentation
+2. Use the search bar to find specific content
+3. Switch between light and dark mode using the theme toggle
+
+## Contact
+
+Feel free to reach out to me through:
+- [GitHub](https://github.com/your-username)
+- [Twitter](https://twitter.com/your-username)
+- [Email](mailto:your-email@example.com)

@@ -1,0 +1,128 @@
+---
+sidebar_position: 2
+---
+
+import DocDataFrame from '@site/src/components/DocDataFrame';
+
+# DataFrame Examples
+
+This page demonstrates various examples of the DataFrame component with different types of data and formatting.
+
+## Basic Example
+
+A simple table with basic data types:
+
+<DocDataFrame
+  data={[
+    { id: 1, name: 'John', age: 30, city: 'New York' },
+    { id: 2, name: 'Jane', age: 25, city: 'Los Angeles' },
+    { id: 3, name: 'Bob', age: 35, city: 'Chicago' }
+  ]}
+  columns={['id', 'name', 'age', 'city']}
+  rowsPerPage={5}
+/>
+
+## Book Example
+
+A table with book information and longer text:
+
+<DocDataFrame
+  data={[
+    {
+      id: 1,
+      title: 'The Great Gatsby',
+      author: 'F. Scott Fitzgerald',
+      summary: 'The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, the novel depicts narrator Nick Carraway\'s interactions with mysterious millionaire Jay Gatsby.',
+      year: 1925
+    },
+    {
+      id: 2,
+      title: 'To Kill a Mockingbird',
+      author: 'Harper Lee',
+      summary: 'To Kill a Mockingbird is a novel by Harper Lee published in 1960. It was immediately successful, winning the Pulitzer Prize, and has become a classic of modern American literature.',
+      year: 1960
+    },
+    {
+      id: 3,
+      title: '1984',
+      author: 'George Orwell',
+      summary: 'Nineteen Eighty-Four is a dystopian social science fiction novel and cautionary tale by English writer George Orwell. It was published in 1949 as Orwell\'s ninth and final book completed in his lifetime.',
+      year: 1949
+    }
+  ]}
+  columns={['id', 'title', 'author', 'summary', 'year']}
+  rowsPerPage={3}
+/>
+
+## Product Example
+
+A table with many rows and various data types:
+
+<DocDataFrame
+  data={[
+    { id: 1, name: 'Laptop', price: 999.99, stock: 50, category: 'Electronics', rating: 4.5 },
+    { id: 2, name: 'Smartphone', price: 699.99, stock: 100, category: 'Electronics', rating: 4.2 },
+    { id: 3, name: 'Headphones', price: 199.99, stock: 200, category: 'Accessories', rating: 4.8 },
+    { id: 4, name: 'Tablet', price: 499.99, stock: 75, category: 'Electronics', rating: 4.3 },
+    { id: 5, name: 'Smartwatch', price: 299.99, stock: 150, category: 'Accessories', rating: 4.1 },
+    { id: 6, name: 'Camera', price: 799.99, stock: 30, category: 'Electronics', rating: 4.7 },
+    { id: 7, name: 'Speaker', price: 399.99, stock: 80, category: 'Electronics', rating: 4.4 },
+    { id: 8, name: 'Mouse', price: 49.99, stock: 300, category: 'Accessories', rating: 4.6 }
+  ]}
+  columns={['id', 'name', 'price', 'stock', 'category', 'rating']}
+  rowsPerPage={5}
+/>
+
+## Project Example
+
+A table with project information:
+
+<DocDataFrame
+  data={[
+    {
+      id: 1,
+      project: 'Website Redesign',
+      status: 'In Progress',
+      team: 'John, Sarah, Mike',
+      deadline: '2024-03-30',
+      progress: '65%'
+    },
+    {
+      id: 2,
+      project: 'Mobile App Development',
+      status: 'Planning',
+      team: 'Alice, Bob, Charlie',
+      deadline: '2024-05-15',
+      progress: '20%'
+    },
+    {
+      id: 3,
+      project: 'Data Analytics Platform',
+      status: 'Completed',
+      team: 'Emma, Frank, Grace',
+      deadline: '2024-02-28',
+      progress: '100%'
+    },
+    {
+      id: 4,
+      project: 'E-commerce Integration',
+      status: 'On Hold',
+      team: 'David, Eve, Fiona',
+      deadline: '2024-04-20',
+      progress: '45%'
+    }
+  ]}
+  columns={['id', 'project', 'status', 'team', 'deadline', 'progress']}
+  rowsPerPage={4}
+/>
+
+## Features
+
+The DataFrame component supports:
+- Sortable columns (click on column headers)
+- Pagination with customizable rows per page
+- Responsive design with horizontal scrolling
+- Dark mode support
+- Column resizing (drag column edges)
+- Hover tooltips for long content
+- Even/odd row styling 

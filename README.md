@@ -4,7 +4,7 @@ A modern documentation website built with Docusaurus.
 
 ## Features
 
-- 📚 Documentation with versioning support
+- 📚 Documentation
 - 🔍 Built-in search functionality
 - 🌙 Dark mode support
 - 📱 Mobile responsive
