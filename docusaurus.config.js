@@ -66,6 +66,20 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
+      announcementBar: {
+        id: 'new-website',
+        content: 'New Website',
+        backgroundColor: '#FF6B00',
+        textColor: '#ffffff',
+        isCloseable: false,
+      },
+      bottomAnnouncementBar: {
+        id: 'bottom-bar',
+        content: 'Bottom Bar',
+        backgroundColor: '#ff8c00',
+        textColor: '#ffffff',
+        isCloseable: false,
+      },
       navbar: {
         title: 'My Website',
         logo: {

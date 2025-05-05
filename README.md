@@ -172,3 +172,130 @@ The documentation is organized in the following structure:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Adding Top and Bottom Announcement Bars
+
+### Top Bar
+1. Add the announcement bar configuration to `docusaurus.config.js`:
+```js
+themeConfig: {
+  announcementBar: {
+    id: 'new-website',
+    content: 'New Website',
+    backgroundColor: '#ff8c00',
+    textColor: '#ffffff',
+    isCloseable: false,
+  },
+  // ... rest of your config
+}
+```
+
+2. Add the following CSS to `src/css/custom.css`:
+```css
+/* Make announcement bar sticky */
+div[class*='announcementBar_'] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  height: 24px;
+  line-height: 24px;
+}
+
+/* Make navbar fixed and position it below announcement bar */
+.navbar {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-top: 0;
+}
+
+/* Ensure the main content starts below both fixed elements */
+main {
+  padding-top: 50px !important;
+  margin-left: 300px !important;
+  position: relative;
+  min-height: calc(100vh - 74px);
+}
+
+/* Adjust the main wrapper to account for fixed elements */
+.main-wrapper {
+  padding-top: 50px !important;
+  position: relative;
+  min-height: 100vh;
+}
+```
+
+### Bottom Bar
+1. Create a new component at `src/components/BottomBar/index.js`:
+```jsx
+import React from 'react';
+import styles from './styles.module.css';
+
+export default function BottomBar() {
+  return (
+    <div className={styles.container}>
+      <div className={styles.bottomBar}>
+        <div className={styles.content}>
+          Bottom Bar
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+2. Create the styles at `src/components/BottomBar/styles.module.css`:
+```css
+.container {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 40px;
+}
+
+.bottomBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  line-height: 24px;
+  background-color: #ff8c00;
+  color: #ffffff;
+  z-index: 1001;
+}
+
+.content {
+  font-size: 0.85em;
+  padding: 0 1rem;
+  text-align: center;
+}
+```
+
+3. Create a custom layout at `src/theme/Layout/index.js`:
+```jsx
+import React from 'react';
+import Layout from '@theme-original/Layout';
+import BottomBar from '@site/src/components/BottomBar';
+
+export default function LayoutWrapper(props) {
+  return (
+    <>
+      <Layout {...props} />
+      <BottomBar />
+    </>
+  );
+}
+```
+
+### Notes
+- The top bar is fixed to the viewport and will always be visible
+- The bottom bar is positioned at the bottom of the content and will only be visible when scrolled to the bottom
+- Both bars use the same orange color (#ff8c00) and white text
+- The height of both bars is 24px
+- The main content is pushed down by 50px to account for the top bar and navbar
+- The sidebar is fixed and starts 84px from the top (24px for top bar + 60px for navbar)

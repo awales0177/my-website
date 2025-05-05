@@ -160,3 +160,100 @@ article {
   padding-right: 0 !important;
 }
 
+/* Make announcement bar sticky */
+div[class*='announcementBar_'] {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  height: 24px;
+  line-height: 24px;
+}
+
+/* Bottom announcement bar */
+div[class*='bottomAnnouncementBar_'] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  height: 24px;
+  line-height: 24px;
+  background-color: #ff8c00;
+  color: #ffffff;
+}
+
+/* Make navbar fixed and position it below announcement bar */
+.navbar {
+  position: fixed;
+  top: 24px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-top: 0;
+}
+
+/* Ensure the main content starts below both fixed elements */
+main {
+  padding-top: 50px !important;
+  margin-left: 300px !important;
+  position: relative;
+  min-height: calc(100vh - 74px); /* Account for top bar and navbar */
+}
+
+/* Adjust the main wrapper to account for fixed elements */
+.main-wrapper {
+  padding-top: 50px !important;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Fix sidebar positioning */
+.theme-doc-sidebar-container {
+  padding-top: 84px !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  width: 300px !important;
+  background-color: var(--ifm-background-color);
+  border-right: 1px solid var(--ifm-color-emphasis-200);
+}
+
+/* Fix table of contents */
+.table-of-contents {
+  position: fixed !important;
+  top: 110px !important; /* Increased from 90px to 110px */
+  max-height: calc(100vh - 110px) !important;
+  overflow-y: auto;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
+
+/* Remove the previous margin adjustment */
+div[class*='announcementBar_'] + div {
+  margin-top: 0;
+}
+
+/* Adjust the announcement bar content */
+div[class*='announcementBar_'] div {
+  font-size: 0.85em;
+  padding: 0 1rem;
+}
+
+/* Ensure the footer is above the bottom bar */
+footer {
+  position: relative;
+  z-index: 1000;
+  margin-bottom: 24px;
+}
+
+/* Container for the bottom bar */
+.bottom-bar-container {
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+}
+
