@@ -46,14 +46,13 @@
 }
 
 .doc-dataframe {
-  width: max-content;
-  min-width: 100%;
   display: flex;
   flex-direction: column;
+  width: max-content;
+  min-width: 100%;
   font-family: 'Segoe UI', 'Roboto', 'Arial', 'Menlo', 'Monaco', 'Consolas', monospace, sans-serif;
   font-size: 15px;
   background: transparent;
-  position: relative;
 }
 
 .dataframe-header {
@@ -65,7 +64,7 @@
 
 .dataframe-header-cell {
   position: relative;
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 120px;
   padding: 0.5rem 0.75rem;
   background: transparent;
@@ -115,7 +114,7 @@
 }
 
 .dataframe-cell {
-  flex: 1;
+  flex: 0 0 auto;
   min-width: 120px;
   padding: 0.5rem 0.75rem;
   overflow: hidden;
@@ -178,6 +177,7 @@
   width: 4px;
   cursor: col-resize;
   background: transparent;
+  z-index: 1;
 }
 
 .resize-handle:hover {
@@ -230,6 +230,18 @@
   min-width: 100px;
   text-align: center;
   padding: 0 0.5rem;
+}
+
+.header-underline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 2.5rem;
+  height: 1px;
+  background: #e6e6e6;
+  pointer-events: none;
+  width: max-content;
+  min-width: 100%;
 }
 
 /* Dark mode support */
@@ -306,18 +318,6 @@
 
 [data-theme='dark'] .pagination-info {
   color: #aaa;
-}
-
-.header-underline {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 2.5rem;
-  height: 1px;
-  background: #e6e6e6;
-  pointer-events: none;
-  width: max-content;
-  min-width: 100%;
 }
 
 [data-theme='dark'] .header-underline {
