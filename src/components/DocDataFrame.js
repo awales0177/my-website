@@ -8,41 +8,59 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [currentPage, setCurrentPage] = useState(1);
   const containerRef = useRef(null);
+  const headerRef = useRef(null);
 
-  // Initialize column widths on mount and handle container resize
+  // Calculate initial column widths based on content
   useEffect(() => {
-    const initialWidths = {};
-    columns.forEach(column => {
-      initialWidths[column] = 120; // Default width
-    });
-    setColumnWidths(initialWidths);
+    const calculateColumnWidths = () => {
+      if (!headerRef.current) return;
 
-    const handleResize = () => {
+      const headerCells = headerRef.current.querySelectorAll('.dataframe-header-cell');
+      const newWidths = {};
+      
+      // First pass: calculate minimum widths based on content
+      columns.forEach((column, index) => {
+        const cell = headerCells[index];
+        if (cell) {
+          // Get the text content width
+          const textWidth = cell.querySelector('.column-title').scrollWidth;
+          // Add padding and sort indicator space
+          const totalWidth = textWidth + 60; // 60px for padding and sort indicator
+          newWidths[column] = Math.max(120, totalWidth);
+        } else {
+          newWidths[column] = 120; // Default width if cell not found
+        }
+      });
+
+      // Second pass: distribute extra space if available
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        const totalMinWidth = columns.length * 120; // Minimum width for all columns
+        const totalWidth = Object.values(newWidths).reduce((sum, w) => sum + w, 0);
         
-        if (containerWidth > totalMinWidth) {
-          // Distribute extra width evenly among columns
-          const extraWidth = containerWidth - totalMinWidth;
+        if (containerWidth > totalWidth) {
+          const extraWidth = containerWidth - totalWidth;
           const extraPerColumn = extraWidth / columns.length;
           
-          const newWidths = {};
           columns.forEach(column => {
-            newWidths[column] = 120 + extraPerColumn;
+            newWidths[column] += extraPerColumn;
           });
-          setColumnWidths(newWidths);
         }
       }
+
+      setColumnWidths(newWidths);
     };
 
-    // Initial resize
-    handleResize();
+    // Initial calculation
+    calculateColumnWidths();
 
-    // Add resize listener
+    // Recalculate on window resize
+    const handleResize = () => {
+      calculateColumnWidths();
+    };
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [columns]);
+  }, [columns, data]);
 
   const totalPages = Math.ceil(data.length / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
@@ -115,7 +133,7 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
       <div className="doc-dataframe-container" ref={containerRef}>
         <div className="doc-dataframe">
           {/* Header */}
-          <div className="dataframe-header">
+          <div className="dataframe-header" ref={headerRef}>
             {columns.map((column) => (
               <div
                 key={column}

@@ -60,7 +60,7 @@ A table with many rows and various data types:
 
 <DocDataFrame
   data={[
-    { id: 1, name: 'Laptop', price: 999.99, stock: 50, category: 'Electronics', rating: 4.5 },
+    { id: 1, name: 'Laptop_', price: 999.99, stock: 50, category: 'Electronics', rating: 4.5 },
     { id: 2, name: 'Smartphone', price: 699.99, stock: 100, category: 'Electronics', rating: 4.2 },
     { id: 3, name: 'Headphones', price: 199.99, stock: 200, category: 'Accessories', rating: 4.8 },
     { id: 4, name: 'Tablet', price: 499.99, stock: 75, category: 'Electronics', rating: 4.3 },
@@ -114,6 +114,37 @@ A table with project information:
   ]}
   columns={['id', 'project', 'status', 'team', 'deadline', 'progress']}
   rowsPerPage={4}
+/>
+
+## Long Column Names Example
+
+A table with very long column names to test auto-sizing:
+
+<DocDataFrame
+  data={[
+    {
+      id: 1,
+      very_long_column_name_that_needs_auto_sizing: 'Short value',
+      another_extremely_long_column_name_for_testing: 'Another short value',
+      this_is_an_exceptionally_long_column_name_to_test_auto_sizing: 'Third short value',
+      regular_column: 'Regular value'
+    },
+    {
+      id: 2,
+      very_long_column_name_that_needs_auto_sizing: 'Different value',
+      another_extremely_long_column_name_for_testing: 'Another different value',
+      this_is_an_exceptionally_long_column_name_to_test_auto_sizing: 'Third different value',
+      regular_column: 'Another regular value'
+    }
+  ]}
+  columns={[
+    'id',
+    'very_long_column_name_that_needs_auto_sizing',
+    'another_extremely_long_column_name_for_testing',
+    'this_is_an_exceptionally_long_column_name_to_test_auto_sizing',
+    'regular_column'
+  ]}
+  rowsPerPage={2}
 />
 
 ## Features
