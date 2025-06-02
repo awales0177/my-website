@@ -77,7 +77,7 @@ const config = {
         title: 'My Website',
         logo: {
           alt: 'My Website Logo',
-          src: 'img/md2.png',
+          src: 'img/med_man.png',
         },
         items: [
           {

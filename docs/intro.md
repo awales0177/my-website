@@ -4,9 +4,12 @@ slug: /
 
 # Welcome to My Website
 
-<img src="/img/rnd.png" width="200" alt="RND Image" />
-
-This is my personal website built with Docusaurus. Here you'll find information about me, my projects, and more.
+<div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+  <img src="/img/rnd.png" width="180" alt="RND Image" />
+  <div>
+    This is my personal website built with Docusaurus. Here you'll find information about me, my projects, and more. The website features a clean, modern design with easy navigation and comprehensive documentation. Explore the various sections to learn about my work, including database schemas, data analysis examples, and some fun Minecraft-related content. The site is designed to be both informative and engaging, with interactive elements and responsive layouts that work well on all devices.
+  </div>
+</div>
 
 ## Features
 

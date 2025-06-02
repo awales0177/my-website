@@ -6,17 +6,14 @@ sidebar_position: 4
 
 Here are three different metal men:
 
-## Bronze Man
-<img src="/img/bronze_man.png" width="200" alt="Bronze Man" />
+## <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>Bronze Man<img src="/img/bronze_man.png" width="50" alt="Bronze Man" /></div>
 
 The bronze man represents the first level of achievement.
 
-## Silver Man
-<img src="/img/silver_man.png" width="200" alt="Silver Man" />
+## <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>Silver Man<img src="/img/silver_man.png" width="50" alt="Silver Man" /></div>
 
 The silver man represents the second level of achievement.
 
-## Gold Man
-<img src="/img/gold_man.png" width="200" alt="Gold Man" />
+## <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>Gold Man<img src="/img/gold_man.png" width="50" alt="Gold Man" /></div>
 
 The gold man represents the highest level of achievement. 
