@@ -73,18 +73,11 @@ const config = {
         textColor: '#ffffff',
         isCloseable: false,
       },
-      bottomAnnouncementBar: {
-        id: 'bottom-bar',
-        content: 'Bottom Bar',
-        backgroundColor: '#ff8c00',
-        textColor: '#ffffff',
-        isCloseable: false,
-      },
       navbar: {
         title: 'My Website',
         logo: {
           alt: 'My Website Logo',
-          src: 'img/4dab380cc2aa54c1446abc7aa7bac956.png',
+          src: 'img/md2.png',
         },
         items: [
           {
@@ -104,6 +97,51 @@ const config = {
             'aria-label': 'GitHub repository',
           },
         ],
+      },
+      footer: {
+        style: 'dark',
+        links: [
+          {
+            title: 'Docs',
+            items: [
+              {
+                label: 'Introduction',
+                to: '/',
+              },
+            ],
+          },
+          {
+            title: 'Community',
+            items: [
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              },
+              {
+                label: 'Discord',
+                href: 'https://discordapp.com/invite/docusaurus',
+              },
+              {
+                label: 'Twitter',
+                href: 'https://twitter.com/docusaurus',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/facebook/docusaurus',
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} My Website. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

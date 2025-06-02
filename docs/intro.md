@@ -4,6 +4,8 @@ slug: /
 
 # Welcome to My Website
 
+<img src="/img/rnd.png" width="200" alt="RND Image" />
+
 This is my personal website built with Docusaurus. Here you'll find information about me, my projects, and more.
 
 ## Features

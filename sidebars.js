@@ -36,6 +36,16 @@ module.exports = {
       type: 'doc',
       id: 'dataframe-example',
       label: 'DataFrame Example'
+    },
+    {
+      type: 'doc',
+      id: 'swords',
+      label: 'Minecraft Swords'
+    },
+    {
+      type: 'doc',
+      id: 'men',
+      label: 'Metal Men'
     }
   ]
 };
