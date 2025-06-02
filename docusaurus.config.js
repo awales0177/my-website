@@ -74,7 +74,7 @@ const config = {
         isCloseable: false,
       },
       navbar: {
-        title: 'My Website',
+        title: 'ETL Process',
         logo: {
           alt: 'My Website Logo',
           src: 'img/med_man.png',
