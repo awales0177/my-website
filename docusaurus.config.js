@@ -74,10 +74,10 @@ const config = {
         isCloseable: false,
       },
       navbar: {
-        title: 'ETL Process',
+        title: 'Accelerated ETL',
         logo: {
           alt: 'My Website Logo',
-          src: 'img/med_man.png',
+          src: 'img/rocket.png',
         },
         items: [
           {
@@ -105,8 +105,16 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Introduction',
-                to: '/',
+                label: 'Tutorial',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Architecture',
+                to: '/docs/architecture',
+              },
+              {
+                label: 'Bronze Layer',
+                to: '/docs/bronze',
               },
             ],
           },

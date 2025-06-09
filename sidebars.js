@@ -14,38 +14,19 @@
 
  @type {import('@docusaurus/plugin-content-docs').SidebarsConfig}
  */
-module.exports = {
+const sidebars = {
   tutorialSidebar: [
-    {
-      type: 'doc',
-      id: 'intro',
-      label: 'Introduction'
-    },
-    {
-      type: 'category',
-      label: 'Database Schemas',
-      items: [
-        {
-          type: 'doc',
-          id: 'database-schemas/car-schema',
-          label: 'Car Database Schema'
-        }
-      ]
-    },
-    {
-      type: 'doc',
-      id: 'dataframe-example',
-      label: 'DataFrame Example'
-    },
-    {
-      type: 'doc',
-      id: 'swords',
-      label: 'Minecraft Swords'
-    },
-    {
-      type: 'doc',
-      id: 'men',
-      label: 'Metal Men'
-    }
-  ]
+    'intro',
+    'bronze',
+    'moon',
+    'reference-data',
+    'database-schemas/car-schema',
+    'er-diagram',
+    'dataframe-example',
+    'swords',
+    'men',
+    'three'
+  ],
 };
+
+export default sidebars;

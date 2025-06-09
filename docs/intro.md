@@ -2,30 +2,81 @@
 slug: /
 ---
 
+import AnimatedTimeline from '@site/src/components/AnimatedTimeline';
+
 # Welcome to My Website
 
 <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-  <img src="/img/rnd.png" width="180" alt="RND Image" />
+  <img src="/img/rocket_rounded.png" width="180" alt="RND Image" />
   <div>
-    This is my personal website built with Docusaurus. Here you'll find information about me, my projects, and more. The website features a clean, modern design with easy navigation and comprehensive documentation. Explore the various sections to learn about my work, including database schemas, data analysis examples, and some fun Minecraft-related content. The site is designed to be both informative and engaging, with interactive elements and responsive layouts that work well on all devices.
+    The site features a comprehensive exploration of the medallion architecture pattern, demonstrating how data flows through <code className="code-blue">bronze</code>, <code className="code-blue">silver</code>, and <code className="code-blue">gold</code> layers. You'll find detailed examples of data transformations, quality checks, and business logic implementations using modern tools like <code className="code-purple">Spark</code>, <code className="code-purple">Delta Lake</code>, and <code className="code-orange">SQL</code>. The site includes interactive components, data visualizations, and real-world examples of how to implement a robust data pipeline using the medallion pattern. Whether you're new to data engineering or looking to refine your architecture, you'll find valuable insights and practical examples here.
   </div>
 </div>
 
+## Medallion Architecture Progression
+
+Our data architecture follows a medallion pattern, represented by different characters that symbolize the stages of data transformation and refinement:
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    <img src="/img/tree_man.png" width="50" alt="Treeman" />
+    <div>
+      <strong>Treeman (Bronze Layer)</strong> - The raw data layer where data is first ingested and stored in its original form. This layer maintains the source data's fidelity and serves as the foundation for all subsequent transformations. Data is stored in <code className="code-blue">parquet</code> format with minimal processing.
+    </div>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    <img src="/img/unpac_man.png" width="50" alt="Unpacman" />
+    <div>
+      <strong>Unpacman (Silver Layer)</strong> - The transformed data layer where data is cleaned, validated, and structured. This layer represents the intermediate stage where data is unpacked from its raw form and prepared for analysis. We apply <code className="code-purple">schema validation</code> and <code className="code-purple">data type</code> conversions here.
+    </div>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    <img src="/img/bronze_man.png" width="50" alt="Bronze Man" />
+    <div>
+      <strong>Bronze Knight (Bronze Layer)</strong> - The first level of achievement in data quality and structure. This layer represents the initial refinement of data, ensuring basic data quality standards are met. We implement <code className="code-orange">data quality</code> checks and <code className="code-orange">error handling</code> at this stage.
+    </div>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    <img src="/img/silver_surfer.png" width="50" alt="Silver Man" />
+    <div>
+      <strong>Silver Surfer (Silver Layer)</strong> - The second level of achievement, representing enhanced data quality and enrichment. This layer adds business logic and transformations to create more valuable data assets. We apply <code className="code-green">business rules</code> and <code className="code-green">data enrichment</code> here.
+    </div>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+    <img src="/img/dr_midas.png" width="50" alt="Gold Man" />
+    <div>
+      <strong>Dr. Midas (Gold Layer)</strong> - The highest level of achievement, representing the most refined and valuable data. This layer contains the final, production-ready data that powers analytics and business intelligence. We ensure <code className="code-red">data consistency</code> and <code className="code-red">performance optimization</code> at this stage.
+    </div>
+  </div>
+</div>
+
+## Data Processing Timeline
+
+<AnimatedTimeline />
+
 ## Features
 
-- 📚 Documentation
+- 📚 Comprehensive documentation of medallion architecture
 - 🔍 Built-in search functionality
 - 🌙 Dark mode support
 - 📱 Mobile responsive
 - 🎨 Customizable theme
+- 📊 Interactive data examples
+- 🔄 Real-time data pipeline visualizations
 
 ## Get Started
 
 To get started with this website, you can:
 
-1. Browse through the documentation
-2. Use the search bar to find specific content
-3. Switch between light and dark mode using the theme toggle
+1. Explore the medallion architecture documentation
+2. Review the data transformation examples
+3. Check out the interactive timeline
+4. Use the search bar to find specific content
+5. Switch between light and dark mode using the theme toggle
 
 ## Contact
 

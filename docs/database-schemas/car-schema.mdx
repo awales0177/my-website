@@ -10,25 +10,25 @@ This document describes the schema for a car database table. The table stores in
 
 | Column Name | Data Type | Description | Constraints |
 |------------|-----------|-------------|-------------|
-| id | INTEGER | Unique identifier for each car | PRIMARY KEY, AUTO_INCREMENT |
-| make | VARCHAR(50) | Manufacturer of the car | NOT NULL |
-| model | VARCHAR(100) | Model name of the car | NOT NULL |
-| year | INTEGER | Manufacturing year | NOT NULL, CHECK (year >= 1886) |
-| color | VARCHAR(30) | Exterior color of the car | NOT NULL |
-| price | DECIMAL(10,2) | Current market price in USD | NOT NULL, CHECK (price > 0) |
-| mileage | INTEGER | Current mileage in miles | NOT NULL, CHECK (mileage >= 0) |
-| transmission | VARCHAR(20) | Type of transmission | NOT NULL, CHECK (transmission IN ('Automatic', 'Manual', 'Semi-Automatic')) |
-| fuel_type | VARCHAR(20) | Type of fuel used | NOT NULL, CHECK (fuel_type IN ('Gasoline', 'Diesel', 'Electric', 'Hybrid', 'Plug-in Hybrid')) |
-| engine_size | DECIMAL(3,1) | Engine displacement in liters | NULL |
-| horsepower | INTEGER | Engine power in horsepower | NULL |
-| mpg_city | DECIMAL(4,1) | Miles per gallon in city driving | NULL |
-| mpg_highway | DECIMAL(4,1) | Miles per gallon in highway driving | NULL |
-| vin | VARCHAR(17) | Vehicle Identification Number | UNIQUE |
-| registration_date | DATE | Date of first registration | NOT NULL |
-| last_service_date | DATE | Date of last maintenance service | NULL |
-| features | TEXT | JSON string of additional features | NULL |
-| created_at | TIMESTAMP | Record creation timestamp | NOT NULL, DEFAULT CURRENT_TIMESTAMP |
-| updated_at | TIMESTAMP | Record last update timestamp | NOT NULL, DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP |
+| id | <code className="code-blue">INTEGER</code> | Unique identifier for each car | <code className="code-purple">PRIMARY KEY</code>, <code className="code-orange">AUTO_INCREMENT</code> |
+| make | <code className="code-blue">VARCHAR(50)</code> | Manufacturer of the car | <code className="code-orange">NOT NULL</code> |
+| model | <code className="code-blue">VARCHAR(100)</code> | Model name of the car | <code className="code-orange">NOT NULL</code> |
+| year | <code className="code-blue">INTEGER</code> | Manufacturing year | <code className="code-orange">NOT NULL</code>, <code className="code-green">CHECK (year >= 1886)</code> |
+| color | <code className="code-blue">VARCHAR(30)</code> | Exterior color of the car | <code className="code-orange">NOT NULL</code> |
+| price | <code className="code-blue">DECIMAL(10,2)</code> | Current market price in USD | <code className="code-orange">NOT NULL</code>, <code className="code-green">CHECK (price > 0)</code> |
+| mileage | <code className="code-blue">INTEGER</code> | Current mileage in miles | <code className="code-orange">NOT NULL</code>, <code className="code-green">CHECK (mileage >= 0)</code> |
+| transmission | <code className="code-blue">VARCHAR(20)</code> | Type of transmission | <code className="code-orange">NOT NULL</code>, <code className="code-green">CHECK (transmission IN ('Automatic', 'Manual', 'Semi-Automatic'))</code> |
+| fuel_type | <code className="code-blue">VARCHAR(20)</code> | Type of fuel used | <code className="code-orange">NOT NULL</code>, <code className="code-green">CHECK (fuel_type IN ('Gasoline', 'Diesel', 'Electric', 'Hybrid', 'Plug-in Hybrid'))</code> |
+| engine_size | <code className="code-blue">DECIMAL(3,1)</code> | Engine displacement in liters | <code className="code-red">NULL</code> |
+| horsepower | <code className="code-blue">INTEGER</code> | Engine power in horsepower | <code className="code-red">NULL</code> |
+| mpg_city | <code className="code-blue">DECIMAL(4,1)</code> | Miles per gallon in city driving | <code className="code-red">NULL</code> |
+| mpg_highway | <code className="code-blue">DECIMAL(4,1)</code> | Miles per gallon in highway driving | <code className="code-red">NULL</code> |
+| vin | <code className="code-blue">VARCHAR(17)</code> | Vehicle Identification Number | <code className="code-purple">UNIQUE</code> |
+| registration_date | <code className="code-blue">DATE</code> | Date of first registration | <code className="code-orange">NOT NULL</code> |
+| last_service_date | <code className="code-blue">DATE</code> | Date of last maintenance service | <code className="code-red">NULL</code> |
+| features | <code className="code-blue">TEXT</code> | JSON string of additional features | <code className="code-red">NULL</code> |
+| created_at | <code className="code-blue">TIMESTAMP</code> | Record creation timestamp | <code className="code-orange">NOT NULL</code>, <code className="code-green">DEFAULT CURRENT_TIMESTAMP</code> |
+| updated_at | <code className="code-blue">TIMESTAMP</code> | Record last update timestamp | <code className="code-orange">NOT NULL</code>, <code className="code-green">DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</code> |
 
 ## Example Data
 
@@ -51,10 +51,10 @@ CREATE INDEX idx_mileage ON cars(mileage);
 
 ## Notes
 
-- The `id` column serves as the primary key and auto-increments for each new record
-- The `vin` column must be unique for each car
-- The `price` and `mileage` columns cannot be negative
-- The `year` column has a minimum value of 1886 (year of the first automobile)
-- The `transmission` and `fuel_type` columns are restricted to specific values
-- The `features` column stores additional car features as a JSON string
+- The <code className="code-blue">id</code> column serves as the <code className="code-purple">PRIMARY KEY</code> and <code className="code-orange">AUTO_INCREMENT</code>s for each new record
+- The <code className="code-blue">vin</code> column must be <code className="code-purple">UNIQUE</code> for each car
+- The <code className="code-blue">price</code> and <code className="code-blue">mileage</code> columns cannot be negative
+- The <code className="code-blue">year</code> column has a minimum value of 1886 (year of the first automobile)
+- The <code className="code-blue">transmission</code> and <code className="code-blue">fuel_type</code> columns are restricted to specific values
+- The <code className="code-blue">features</code> column stores additional car features as a JSON string
 - Timestamps are automatically managed for record creation and updates
