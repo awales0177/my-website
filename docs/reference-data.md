@@ -5,7 +5,7 @@ sidebar_position: 5
 # Reference Data
 
 <div class="flex-container">
-  <img src="/img/bronze_man.png" width="100" alt="Bronze Man" />
+  <img src="/img/referee.png" width="100" alt="Bronze Man" />
   <div>
     <h2>Data Patterns & Examples</h2>
     <p>
