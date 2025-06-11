@@ -77,7 +77,7 @@ const config = {
         title: 'Accelerated ETL',
         logo: {
           alt: 'My Website Logo',
-          src: 'img/rocket.png',
+          src: 'img/lot-graph.png',
         },
         items: [
           {

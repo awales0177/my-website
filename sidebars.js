@@ -17,6 +17,7 @@
 const sidebars = {
   tutorialSidebar: [
     'intro',
+    'logo',
     'bronze',
     'moon',
     'reference-data',
