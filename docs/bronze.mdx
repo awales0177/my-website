@@ -2,6 +2,8 @@
 sidebar_position: 2
 ---
 
+import BronzeFlowchart from '@site/src/components/BronzeFlowchart';
+
 # Bronze Layer
 
 The Bronze layer represents the first level of data refinement in our medallion architecture. This layer focuses on establishing basic data quality standards and initial data cleaning.
@@ -14,6 +16,31 @@ The Bronze layer represents the first level of data refinement in our medallion 
     The Bronze Man symbolizes our commitment to data quality and reliability. Just as bronze is stronger than raw materials, our bronze layer transforms raw data into a more reliable foundation.
   </div>
 </div>
+
+## Bronze Layer Processing Flowchart
+
+The following interactive flowchart illustrates the 16-step process that data undergoes in the bronze layer. You can zoom, pan, and interact with the nodes to explore the data flow:
+
+<BronzeFlowchart />
+
+### Step-by-Step Breakdown
+
+1. **Raw Data Ingestion** - Data arrives from various sources (APIs, databases, files)
+2. **Data Source Validation** - Verify data source authenticity and integrity
+3. **Initial Schema Check** - Basic structure validation against expected format
+4. **Data Format Detection** - Identify file formats, encodings, and structures
+5. **Encoding Validation** - Ensure proper character encoding (UTF-8, ASCII, etc.)
+6. **Basic Data Type Inference** - Automatically detect data types from content
+7. **Null Value Analysis** - Identify and categorize missing or null values
+8. **Duplicate Detection** - Find and flag duplicate records
+9. **Data Range Validation** - Check values against acceptable ranges
+10. **Format Standardization** - Convert data to consistent formats
+11. **Schema Enforcement** - Apply strict schema validation rules
+12. **Data Quality Scoring** - Calculate quality metrics and scores
+13. **Error Logging & Tracking** - Record all issues for monitoring
+14. **Data Partitioning** - Organize data by ingestion date/time
+15. **Storage Optimization** - Optimize storage format and compression
+16. **Metadata Generation** - Create comprehensive data lineage and metadata
 
 ## Data Quality Checks
 
