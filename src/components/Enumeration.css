@@ -1,0 +1,94 @@
+/* Enumeration Component Styles - Datatype Style */
+.enumeration-container {
+  margin: 1rem 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.enumeration-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  font-family: var(--ifm-font-family-monospace);
+}
+
+.enumeration-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.enumeration-item {
+  padding: 0.25rem 0;
+  border-left: 2px solid var(--ifm-color-emphasis-300);
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.enumeration-item:hover {
+  background: var(--ifm-color-emphasis-100);
+  border-left-color: var(--ifm-color-primary);
+}
+
+
+.enumeration-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.enumeration-label {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  font-size: 0.8rem;
+}
+
+.enumeration-value {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+  font-size: 0.8rem;
+}
+
+.enumeration-description {
+  color: var(--ifm-color-emphasis-600);
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+/* Dark mode styles */
+[data-theme='dark'] .enumeration-item:hover {
+  background: var(--ifm-color-emphasis-200);
+  border-left-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .enumeration-label {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .enumeration-value {
+  color: var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .enumeration-description {
+  color: var(--ifm-color-emphasis-400);
+}
+
+[data-theme='dark'] .enumeration-title {
+  color: var(--ifm-color-emphasis-300);
+}
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .enumeration-container {
+    font-size: 0.85rem;
+  }
+  
+  .enumeration-item {
+    gap: 0.25rem;
+  }
+}

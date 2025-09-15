@@ -1,0 +1,70 @@
+---
+sidebar_position: 4
+---
+
+# Database Schema
+
+This page documents the database schema structure for our data engineering system. The schema defines the structure, data types, and relationships for all tables in our data warehouse.
+
+## Core Tables
+
+### Primary Data Tables
+
+| Name | Description | Examples |
+|------|-------------|----------|
+| `customers` | Stores customer information including personal details, contact information, and account status. | `customer_001`, `customer_002`, `customer_003` |
+| `orders` | Contains order records with timestamps, customer references, and order status information. | `order_12345`, `order_12346`, `order_12347` |
+| `products` | Product catalog with SKU, name, description, price, and category information. | `SKU-001`, `SKU-002`, `SKU-003` |
+| `order_items` | Junction table linking orders to products with quantities and line item details. | `item_001`, `item_002`, `item_003` |
+| `addresses` | Customer address information including shipping and billing addresses. | `addr_001`, `addr_002`, `addr_003` |
+
+## Data Types
+
+### Supported Data Types
+
+| Name | Description | Examples |
+|------|-------------|----------|
+| `VARCHAR` | Variable-length character string with specified maximum length. | `VARCHAR(255)`, `VARCHAR(50)`, `VARCHAR(1000)` |
+| `INTEGER` | Whole number data type for storing numeric values without decimal places. | `INTEGER`, `BIGINT`, `SMALLINT` |
+| `DECIMAL` | Fixed-point decimal number with specified precision and scale. | `DECIMAL(10,2)`, `DECIMAL(5,0)`, `DECIMAL(15,4)` |
+| `TIMESTAMP` | Date and time data type with timezone support for temporal data. | `TIMESTAMP`, `TIMESTAMP WITH TIME ZONE`, `DATE` |
+| `BOOLEAN` | Logical data type representing true/false values. | `BOOLEAN`, `BOOL`, `BIT` |
+| `JSON` | Semi-structured data format for storing complex nested objects. | `JSON`, `JSONB`, `TEXT` |
+
+## ETL Process Tables
+
+### Data Processing Tables
+
+| Name | Description | Examples |
+|------|-------------|----------|
+| `bronze_raw_data` | Raw data ingestion table storing unprocessed data from source systems. | `batch_20240101`, `batch_20240102`, `batch_20240103` |
+| `silver_processed_data` | Cleaned and validated data ready for business logic processing. | `processed_20240101`, `processed_20240102`, `processed_20240103` |
+| `gold_analytics_data` | Final processed data optimized for analytics and reporting. | `analytics_20240101`, `analytics_20240102`, `analytics_20240103` |
+| `data_quality_metrics` | Quality metrics and validation results for data processing monitoring. | `metrics_20240101`, `metrics_20240102`, `metrics_20240103` |
+| `data_lineage` | Data lineage tracking table for audit and compliance purposes. | `lineage_001`, `lineage_002`, `lineage_003` |
+
+## Schema Relationships
+
+The database follows a star schema pattern with the following relationships:
+
+- **customers** → **orders** (one-to-many)
+- **orders** → **order_items** (one-to-many)
+- **products** → **order_items** (one-to-many)
+- **customers** → **addresses** (one-to-many)
+- **bronze_raw_data** → **silver_processed_data** (one-to-one)
+- **silver_processed_data** → **gold_analytics_data** (one-to-one)
+
+## Data Partitioning
+
+Tables are partitioned by date for optimal query performance:
+
+- **Daily partitioning** for high-volume tables (orders, order_items)
+- **Monthly partitioning** for reference tables (customers, products)
+- **Yearly partitioning** for historical data (bronze_raw_data)
+
+## Indexing Strategy
+
+- **Primary keys** on all tables for unique identification
+- **Foreign key indexes** for join optimization
+- **Date-based indexes** for time-series queries
+- **Composite indexes** for common query patterns
