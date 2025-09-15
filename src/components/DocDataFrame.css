@@ -322,4 +322,77 @@
 
 [data-theme='dark'] .header-underline {
   background: #44474d;
+}
+
+/* Metadata Toggle Styles */
+.dataframe-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.metadata-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.metadata-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle-slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: #ccc;
+  border-radius: 12px;
+  transition: background 0.3s ease;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.metadata-toggle input[type="checkbox"]:checked + .toggle-slider {
+  background: var(--ifm-color-primary);
+}
+
+.metadata-toggle input[type="checkbox"]:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.toggle-label {
+  font-size: 0.875rem;
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 500;
+}
+
+/* Dark mode toggle styles */
+[data-theme='dark'] .toggle-slider {
+  background: #555;
+}
+
+[data-theme='dark'] .toggle-slider::before {
+  background: #f3f3f3;
+}
+
+[data-theme='dark'] .metadata-toggle input[type="checkbox"]:checked + .toggle-slider {
+  background: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .toggle-label {
+  color: var(--ifm-color-emphasis-300);
 } 

@@ -147,6 +147,58 @@ A table with very long column names to test auto-sizing:
   rowsPerPage={2}
 />
 
+## Metadata Toggle Example
+
+A table with metadata fields that can be hidden using the toggle:
+
+<DocDataFrame
+  data={[
+    {
+      id: 1,
+      name: 'John Doe',
+      email: 'john@example.com',
+      department: 'Engineering',
+      salary: 75000,
+      created_at: '2024-01-15T10:30:00Z',
+      updated_at: '2024-01-20T14:45:00Z',
+      last_login: '2024-01-25T09:15:00Z'
+    },
+    {
+      id: 2,
+      name: 'Jane Smith',
+      email: 'jane@example.com',
+      department: 'Marketing',
+      salary: 65000,
+      created_at: '2024-01-10T08:20:00Z',
+      updated_at: '2024-01-22T16:30:00Z',
+      last_login: '2024-01-24T11:20:00Z'
+    },
+    {
+      id: 3,
+      name: 'Bob Johnson',
+      email: 'bob@example.com',
+      department: 'Sales',
+      salary: 70000,
+      created_at: '2024-01-05T12:00:00Z',
+      updated_at: '2024-01-18T13:15:00Z',
+      last_login: '2024-01-23T08:45:00Z'
+    },
+    {
+      id: 4,
+      name: 'Alice Brown',
+      email: 'alice@example.com',
+      department: 'HR',
+      salary: 60000,
+      created_at: '2024-01-12T14:30:00Z',
+      updated_at: '2024-01-21T10:20:00Z',
+      last_login: '2024-01-25T07:30:00Z'
+    }
+  ]}
+  columns={['id', 'name', 'email', 'department', 'salary', 'created_at', 'updated_at', 'last_login']}
+  metadataFields={['id', 'created_at', 'updated_at', 'last_login']}
+  rowsPerPage={4}
+/>
+
 ## Features
 
 The DataFrame component supports:
@@ -156,4 +208,5 @@ The DataFrame component supports:
 - Dark mode support
 - Column resizing (drag column edges)
 - Hover tooltips for long content
-- Even/odd row styling 
+- Even/odd row styling
+- **Metadata toggle** - Hide/show technical fields with a slider switch 

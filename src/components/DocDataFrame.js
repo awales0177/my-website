@@ -1,35 +1,44 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './DocDataFrame.css';
 
-const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
+const DocDataFrame = ({ data, columns, rowsPerPage = 10, metadataFields = [] }) => {
   const [sortedData, setSortedData] = useState(data);
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
   const [columnWidths, setColumnWidths] = useState({});
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
   const [currentPage, setCurrentPage] = useState(1);
+  const [hideMetadata, setHideMetadata] = useState(true);
   const containerRef = useRef(null);
   const headerRef = useRef(null);
+
+  // Filter columns based on metadata toggle
+  const visibleColumns = hideMetadata 
+    ? columns.filter(col => !metadataFields.includes(col))
+    : columns;
 
   // Calculate initial column widths based on content
   useEffect(() => {
     const calculateColumnWidths = () => {
-      if (!headerRef.current) return;
-
-      const headerCells = headerRef.current.querySelectorAll('.dataframe-header-cell');
       const newWidths = {};
       
-      // First pass: calculate minimum widths based on content
-      columns.forEach((column, index) => {
-        const cell = headerCells[index];
-        if (cell) {
-          // Get the text content width
-          const textWidth = cell.querySelector('.column-title').scrollWidth;
-          // Add padding and sort indicator space
-          const totalWidth = textWidth + 60; // 60px for padding and sort indicator
-          newWidths[column] = Math.max(120, totalWidth);
-        } else {
-          newWidths[column] = 120; // Default width if cell not found
-        }
+      // Calculate widths based on content length and column names
+      visibleColumns.forEach((column) => {
+        // Calculate width based on column name length
+        const columnNameWidth = column.length * 8; // Approximate character width
+        
+        // Find the maximum content width for this column
+        let maxContentWidth = columnNameWidth;
+        data.forEach(row => {
+          if (row[column] !== undefined) {
+            const contentLength = String(row[column]).length;
+            const contentWidth = contentLength * 8; // Approximate character width
+            maxContentWidth = Math.max(maxContentWidth, contentWidth);
+          }
+        });
+        
+        // Add padding and sort indicator space
+        const totalWidth = maxContentWidth + 60; // 60px for padding and sort indicator
+        newWidths[column] = Math.max(120, totalWidth);
       });
 
       // Second pass: distribute extra space if available
@@ -39,9 +48,9 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
         
         if (containerWidth > totalWidth) {
           const extraWidth = containerWidth - totalWidth;
-          const extraPerColumn = extraWidth / columns.length;
+          const extraPerColumn = extraWidth / visibleColumns.length;
           
-          columns.forEach(column => {
+          visibleColumns.forEach(column => {
             newWidths[column] += extraPerColumn;
           });
         }
@@ -60,7 +69,7 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [columns, data]);
+  }, [visibleColumns, data]);
 
   const totalPages = Math.ceil(data.length / rowsPerPage);
   const startIndex = (currentPage - 1) * rowsPerPage;
@@ -95,9 +104,9 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
         
         if (containerWidth > totalWidth) {
           const extraWidth = containerWidth - totalWidth;
-          const extraPerColumn = extraWidth / (columns.length - 1);
+          const extraPerColumn = extraWidth / (visibleColumns.length - 1);
           
-          columns.forEach(col => {
+          visibleColumns.forEach(col => {
             if (col !== column) {
               newWidths[col] += extraPerColumn;
             }
@@ -130,11 +139,26 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
 
   return (
     <div className="doc-dataframe-wrapper">
+      {/* Toggle for metadata fields */}
+      {metadataFields.length > 0 && (
+        <div className="dataframe-controls">
+          <label className="metadata-toggle">
+            <input
+              type="checkbox"
+              checked={hideMetadata}
+              onChange={(e) => setHideMetadata(e.target.checked)}
+            />
+            <span className="toggle-slider"></span>
+            <span className="toggle-label">Hide metadata fields</span>
+          </label>
+        </div>
+      )}
+      
       <div className="doc-dataframe-container" ref={containerRef}>
         <div className="doc-dataframe">
           {/* Header */}
           <div className="dataframe-header" ref={headerRef}>
-            {columns.map((column) => (
+            {visibleColumns.map((column) => (
               <div
                 key={column}
                 className="dataframe-header-cell"
@@ -177,7 +201,7 @@ const DocDataFrame = ({ data, columns, rowsPerPage = 10 }) => {
                 key={startIndex + rowIndex}
                 className={`dataframe-row ${(startIndex + rowIndex) % 2 === 0 ? 'even' : 'odd'}`}
               >
-                {columns.map((column) => (
+                {visibleColumns.map((column) => (
                   <div
                     key={column}
                     className="dataframe-cell"
