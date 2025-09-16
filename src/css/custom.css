@@ -338,6 +338,16 @@ main {
   padding-top: 1rem;
 }
 
+/* Fix scroll offset for anchor links */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Alternative scroll offset for older browsers */
+:target {
+  scroll-margin-top: 100px;
+}
+
 /* Remove the previous margin adjustment */
 div[class*='announcementBar_'] + div {
   margin-top: 0;
