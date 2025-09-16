@@ -98,6 +98,12 @@ const config = {
             className: 'header-github-link',
             'aria-label': 'GitHub repository',
           },
+          {
+            href: 'https://lotus.com',
+            position: 'right',
+            className: 'header-lotus-link',
+            'aria-label': 'Lotus website',
+          },
         ],
       },
       footer: {

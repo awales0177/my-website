@@ -120,6 +120,42 @@
   letter-spacing: 0.5px;
 }
 
+/* --- Lotus Link --- */
+.header-lotus-link {
+  display: flex;
+  align-items: center;
+  margin-right: 0.2rem;
+  margin-left: -0.3rem;
+  transition: opacity 0.2s ease;
+}
+
+.header-lotus-link:hover {
+  opacity: 0.8;
+}
+
+.header-lotus-link::before {
+  content: '';
+  width: 28px;
+  height: 28px;
+  display: flex;
+  background: url("/img/lotus-flower-svgrepo-com.svg") no-repeat center;
+  background-size: 24px 24px;
+  transition: all 0.2s ease;
+  filter: invert(0.4);
+}
+
+.header-lotus-link:hover::before {
+  opacity: 0.8;
+}
+
+[data-theme='dark'] .header-lotus-link::before {
+  filter: invert(1);
+}
+
+[data-theme='dark'] .header-lotus-link:hover::before {
+  opacity: 0.8;
+}
+
 /* --- GitHub Link --- */
 .header-github-link {
   display: flex;
